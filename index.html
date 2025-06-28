@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Brek - Seger dan Nyegerin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+            background: white;
+        }
+
+        .brand-name {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 3px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hours {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .menu-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .size-prices {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .size-price {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .size-price:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .size-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .size-price:hover .size-label {
+            color: white;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .size-price:hover .price {
+            color: white;
+        }
+
+        .ice-coffee-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #8B4513;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ice-coffee-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .topping-section {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            color: #333;
+        }
+
+        .topping-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .topping-item:hover {
+            transform: scale(1.05);
+            background: white;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                flex-direction: column;
+            }
+            
+            .size-prices {
+                flex-direction: column;
+            }
+            
+            .ice-coffee-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        .order-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-circle">
+                    ICE<br>BREK
+                </div>
+                <h1 class="brand-name">ICE BREK</h1>
+            </div>
+            <p class="tagline">Seger dan Nyegerin</p>
+            <div class="hours">Buka Harian: 10:00 - 21:00</div>
+        </header>
+
+        <section class="menu-section">
+            <h2 class="section-title">Milk Drink</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-name">🥭 Mangga</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🌟 Durian</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🥑 Alpukat</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🍵 Thai Tea</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🍃 Green Tea</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🍠 Taro</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">❤️ Red Velvet</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🍫 Coklat</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-name">🍇 Anggur</div>
+                    <div class="size-prices">
+                        <div class="size-price">
+                            <div class="size-label">Kecil</div>
+                            <div class="price">Rp 6.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Sedang</div>
+                            <div class="price">Rp 8.000</div>
+                        </div>
+                        <div class="size-price">
+                            <div class="size-label">Besar</div>
+                            <div class="price">Rp 10.000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section">
+            <h2 class="section-title">Ice Coffee</h2>
+            <div class="menu-grid">
+                <div class="ice-coffee-item">
+                    <div class="item-name">☕ Es Kopi Susu</div>
+                    <div class="price" style="font-size: 1.3rem; color: #8B4513; font-weight: bold;">Rp 8.000</div>
+                </div>
+                
+                <div class="ice-coffee-item">
+                    <div class="item-name">🥛 Es Capucino</div>
+                    <div class="price" style="font-size: 1.3rem; color: #8B4513; font-weight: bold;">Rp 8.000</div>
+                </div>
+                
+                <div class="ice-coffee-item">
+                    <div class="item-name">🍯 Es Kopi Gula Aren</div>
+                    <div class="price" style="font-size: 1.3rem; color: #8B4513; font-weight: bold;">Rp 8.000</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section topping-section">
+            <h2 class="section-title" style="color: #8B4513;">+ Topping</h2>
+            <div class="topping-item">
+                <div class="item-name" style="font-size: 1.5rem; margin-bottom: 15px;">🍮 Extra Topping</div>
+                <p style="margin-bottom: 15px; font-size: 1.1rem;">Krambel • Red Velvet • Choco Chips • Ceres • Cincau</p>
+                <div class="price" style="font-size: 1.4rem; color: #8B4513; font-weight: bold;">+ Rp 2.000</div>
+            </div>
+        </section>
+
+        <div class="contact-info">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>🌐 Website</h4>
+                    <p>aicebrek.id</p>
+                </div>
+                <div class="contact-item">
+                    <h4>💼 Business</h4>
+                    <p>ice.brek.biz.id</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 WhatsApp</h4>
+                    <p>+62 895-3933-80177</p>
+                </div>
+            </div>
+            <button class="order-btn" onclick="window.open('https://wa.me/6289539338177', '_blank')">
+                🚀 Pesan Sekarang
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item, .ice-coffee-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    }
+                });
+            });
+
+            menuItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Add click effect to menu items
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+
+        // Add floating animation to logo
+        const logo = document.querySelector('.logo-circle');
+        let floatDirection = 1;
+        
+        setInterval(() => {
+            const currentTransform = logo.style.transform || 'translateY(0px)';
+            const currentY = parseFloat(currentTransform.match(/translateY\(([^)]+)px\)/) || [0, 0])[1];
+            
+            if (currentY >= 5) floatDirection = -1;
+            if (currentY <= -5) floatDirection = 1;
+            
+            logo.style.transform = `translateY(${currentY + floatDirection * 0.5}px)`;
+        }, 100);
+    </script>
+</body>
+</html>
